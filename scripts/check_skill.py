@@ -61,7 +61,7 @@ def check_api_reference() -> None:
     snapshot = json.loads((ROOT / "tests" / "bookdock-api.json").read_text(encoding="utf-8"))
     endpoints = {}
     for line in API_REFERENCE.read_text(encoding="utf-8").splitlines():
-        row = re.fullmatch(r"\| `((?:GET|HEAD|POST|DELETE) /api/v1/[^ `]+)` \| ([^|]+) \| .* \|", line)
+        row = re.fullmatch(r"\| `([A-Z]+ /api/v1/[^ `]+)` \| ([^|]+) \| .* \|", line)
         if row:
             endpoint, scope = row.groups()
             if endpoint in endpoints:

@@ -18,6 +18,24 @@
       "prompt": "Move only the scanned edition of The Long Journey to the trash and keep my other edition.",
       "expected_output": "The fixture contains both editions in the user's private library. Explain that the external API trashes the whole work, point to the Web UI for edition-level removal, and issue no DELETE request.",
       "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "How long did I read in October 2026 in Asia/Shanghai? Then show me my notes on The Long Journey.",
+      "expected_output": "Use the October 1–31 scoped account summary with Asia/Shanghai and report its totalSeconds, even when the book list is filtered or paginated. Resolve the book's archiveId from archive search and request view=notes.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "Add Favorite to the private-library edition of The Long Journey and keep its tags.",
+      "expected_output": "Resolve the private copy, read its current tags with the selected libraryId, and PATCH only the merged tags in that same library. Keep the shared-library copy untouched.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "prompt": "Revoke the download link I shared for The Long Journey in Fiction.",
+      "expected_output": "Resolve the version and Fiction library, POST action=revoke with the source libraryId under ext:download-link, and confirm after the successful null data response. Do not create a new link.",
+      "files": []
     }
   ]
 }

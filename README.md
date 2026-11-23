@@ -4,7 +4,7 @@
     <img src="./assets/bookdock.svg" alt="书坞" width="64" height="64" />
   </picture>
   <h1>书坞 Agent Skill</h1>
-  <p>在对话中查找、上传和分享书坞里的电子书。</p>
+  <p>在对话中查找、整理和分享书坞里的电子书，也能查看阅读记录与笔记。</p>
   <p>简体中文 · <a href="./README.en.md">English</a></p>
 </div>
 
@@ -25,7 +25,7 @@ BOOKDOCK_URL 和 BOOKDOCK_TOKEN。
 
 ## 连接书坞
 
-在书坞的 **设置 → 集成 → 访问令牌** 创建令牌。浏览书库、搜索和查看详情需要 `ext:libraries`、`ext:books` 和 `ext:book`。下载、分享、上传和移入回收站的权限见 [API 权限表（英文）](skills/bookdock/references/external-api.md#endpoints-and-token-scopes)。
+在书坞的 **设置 → 集成 → 访问令牌** 创建令牌。浏览书库、搜索和查看详情需要 `ext:libraries`、`ext:books` 和 `ext:book`。查看阅读档案使用 `ext:reading-archives`，编辑书籍信息使用 `ext:update-book`。实例需要支持相应接口。其他权限见 [API 权限表](skills/bookdock/references/external-api.md#endpoints-and-token-scopes)。
 
 在 Agent 的运行环境中填写实例地址和令牌。
 
@@ -41,5 +41,9 @@ BOOKDOCK_URL 和 BOOKDOCK_TOKEN。
 > 把这份 EPUB 上传到我的私有书库，放进「科幻」分类。
 >
 > 给我选中的版本创建一个有效期为一小时的下载链接。
+>
+> 把私有书库里这本书的分类改为「科幻」，保留现有标签。
+>
+> 我上个月一共读了多久？再列出我在《三体》里的笔记。
 
-[更新日志（英文）](CHANGELOG.md) · [MIT 许可证](LICENSE)
+[更新日志](CHANGELOG.md) · [MIT 许可证](LICENSE)

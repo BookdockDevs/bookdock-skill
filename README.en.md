@@ -4,7 +4,7 @@
     <img src="./assets/bookdock.svg" alt="Bookdock" width="64" height="64" />
   </picture>
   <h1>Bookdock Agent Skill</h1>
-  <p>Find, upload, and share Bookdock books from your agent.</p>
+  <p>Find, organize, and share Bookdock books, and look up reading history and notes from your agent.</p>
   <p><a href="./README.md">简体中文</a> · English</p>
 </div>
 
@@ -26,7 +26,7 @@ For manual installation, import `bookdock.zip` from [Releases](https://github.co
 
 ## Connect to Bookdock
 
-Create a token in Bookdock under **Settings → Integrations → Access tokens**. Grant `ext:libraries`, `ext:books`, and `ext:book` for browsing, search, and book details. See the [API permissions table](skills/bookdock/references/external-api.md#endpoints-and-token-scopes) for download, sharing, upload, and trash permissions.
+Create a token in Bookdock under **Settings → Integrations → Access tokens**. Grant `ext:libraries`, `ext:books`, and `ext:book` for browsing, search, and book details. Grant `ext:reading-archives` for reading history or `ext:update-book` for book edits on an instance that supports those endpoints. See the [API permissions table](skills/bookdock/references/external-api.md#endpoints-and-token-scopes) for the other scopes.
 
 Set the instance URL and access token in your agent's execution environment.
 
@@ -42,5 +42,9 @@ Set the instance URL and access token in your agent's execution environment.
 > Upload this EPUB to the Science Fiction category in my private library.
 >
 > Create a one-hour download link for the edition I picked.
+>
+> File this private-library book under Science Fiction and keep its existing tags.
+>
+> How long did I read last month? Show me my notes on *The Three-Body Problem* too.
 
 [Changelog](CHANGELOG.md) · [MIT license](LICENSE)
