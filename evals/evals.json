@@ -1,0 +1,23 @@
+{
+  "skill_name": "bookdock",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Find The Long Journey in the Fiction library and send me the file.",
+      "expected_output": "The fixture lists two matching editions of The Long Journey in Fiction. Ask which edition the user wants before issuing a file request.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Share The Long Journey with Sam for one hour.",
+      "expected_output": "The fixture has one matching edition and returns an existing permanent download link for the share request. Explain the returned duration and ask whether it is acceptable without disclosing the URL or sending it to Sam.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Move only the scanned edition of The Long Journey to the trash and keep my other edition.",
+      "expected_output": "The fixture contains both editions in the user's private library. Explain that the external API trashes the whole work, point to the Web UI for edition-level removal, and issue no DELETE request.",
+      "files": []
+    }
+  ]
+}
