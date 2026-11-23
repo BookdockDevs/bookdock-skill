@@ -1,0 +1,14 @@
+{
+  "source": "BookdockDevs/bookdock@ab987f71ceb4dab9ffb7e1ee11f05336c634e39f:packages/shared/src/access-tokens.ts",
+  "endpoints": {
+    "GET /api/v1/auth/me": null,
+    "GET /api/v1/ext/libraries": "ext:libraries",
+    "GET /api/v1/ext/books": "ext:books",
+    "GET /api/v1/ext/books/:versionId": "ext:book",
+    "GET /api/v1/ext/books/:versionId/file": "ext:file",
+    "HEAD /api/v1/ext/books/:versionId/file": "ext:file",
+    "POST /api/v1/ext/books/:versionId/download-link": "ext:download-link",
+    "POST /api/v1/ext/books": "ext:upload",
+    "DELETE /api/v1/ext/books/:versionId": "ext:delete"
+  }
+}

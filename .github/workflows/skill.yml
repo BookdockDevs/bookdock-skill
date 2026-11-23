@@ -1,0 +1,56 @@
+name: Skill
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+    tags: ['v*']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate and package
+    if: github.event_name != 'push' || !github.event.deleted
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.11'
+      - run: python -m pip install PyYAML==6.0.3
+      - name: Check Skill and build ZIP
+        env:
+          RELEASE_TAG: ${{ github.ref_type == 'tag' && github.ref_name || '' }}
+        run: python scripts/check_skill.py --bash bash --tag "$RELEASE_TAG" --output dist/bookdock.zip --release-notes dist/release-notes.md
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bookdock-skill
+          path: |
+            dist/bookdock.zip
+            dist/release-notes.md
+          if-no-files-found: error
+
+  release:
+    name: Publish tagged release
+    if: github.event_name == 'push' && github.ref_type == 'tag'
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: bookdock-skill
+      - name: Publish on GitHub Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" bookdock.zip \
+            --repo "$GITHUB_REPOSITORY" --verify-tag --notes-file release-notes.md
